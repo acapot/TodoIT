@@ -1,10 +1,10 @@
 package org.example;
 
 import junit.framework.TestCase;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.*;
+import static org.junit.Assert.*;
 
-public class PersonTest extends TestCase {
+public class PersonTest  {
 
     public static final String FIRSTNAME = "Alexis";
     public static final String LASTNAME = "Capot";
@@ -26,9 +26,15 @@ public class PersonTest extends TestCase {
     }
 
 
-    @Test (expected = RuntimeException.class)
+    @Test(expected = RuntimeException.class)
     public void given_null_runtime_exception() {
         new Person (null, null , null);
+        System.out.println("si");
+    }
+
+    @Test(expected = RuntimeException.class)
+    public void given_null_id_constructor_throws_runtime_exception() {
+        new Person(null, null, null);
     }
 
     @Test
