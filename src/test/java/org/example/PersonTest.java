@@ -32,11 +32,6 @@ public class PersonTest  {
         System.out.println("si");
     }
 
-    @Test(expected = RuntimeException.class)
-    public void given_null_id_constructor_throws_runtime_exception() {
-        new Person(null, null, null);
-    }
-
     @Test
     public void testFirstName() {
         String expected = "Alexis";
