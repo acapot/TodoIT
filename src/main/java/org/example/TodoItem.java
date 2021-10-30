@@ -22,10 +22,6 @@ public class TodoItem {
     public TodoItem(String title, String taskDescription, LocalDate deadLine, boolean done, Person creator) {
         //this.id = id;
         //this.title = title;
-        if(title == null){
-            throw new RuntimeException("title was null");
-        }
-
         setTitle(title);
 
         //this.taskDescription = taskDescription;
@@ -53,6 +49,10 @@ public class TodoItem {
     }
 
     public void setTitle(String title) {
+        if(title == null){
+            throw new RuntimeException("Title was null");
+        }
+
         this.title = title;
     }
 
@@ -69,6 +69,9 @@ public class TodoItem {
     }
 
     public void setDeadLine(LocalDate deadLine) {
+        if(deadLine == null){
+            throw new RuntimeException("Deadline was null");
+        }
         this.deadLine = deadLine;
     }
 

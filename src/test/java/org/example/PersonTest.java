@@ -22,6 +22,7 @@ public class PersonTest  {
         assertTrue(testObject.getId()>0);
         assertEquals(testObject.getFirstname(),FIRSTNAME);
         assertEquals(testObject.getLastName(),LASTNAME);
+        assertEquals(testObject.getEmail(),EMAIL);
 
     }
 
@@ -29,9 +30,26 @@ public class PersonTest  {
     @Test(expected = RuntimeException.class)
     public void given_null_runtime_exception() {
         new Person (null, null , null);
-        System.out.println("si");
+        //System.out.println("si");
     }
 
+
+
+    @Test(expected = RuntimeException.class)
+    public void given_first_name_null_runtime_exception() {
+        new Person (null, LASTNAME , EMAIL);
+    }
+
+    @Test(expected = RuntimeException.class)
+    public void given_last_name_null_runtime_exception() {
+        new Person (FIRSTNAME, null , EMAIL);
+    }
+
+    @Test(expected = RuntimeException.class)
+    public void given_email_null_runtime_exception() {
+        new Person (FIRSTNAME, FIRSTNAME , null);
+    }
+/*
     @Test
     public void testFirstName() {
         String expected = "Alexis";
@@ -50,22 +68,7 @@ public class PersonTest  {
         String expected = "ac@hotmail.com";
         assertEquals(expected, testObject.getEmail());
     }
-/*
-    @Test(expected = RuntimeException.class)
-    public void given_first_name_null_runtime_exception() throws RuntimeException {
-        new Person (null, LASTNAME , EMAIL);
-    }
 
-    @Test(expected = RuntimeException.class)
-    public void given_last_name_null_runtime_exception() throws RuntimeException{
-        new Person (FIRSTNAME, null , EMAIL);
-    }
-
-    @Test(expected = RuntimeException.class)
-    public void given_email_null_runtime_exception() throws RuntimeException{
-        new Person (FIRSTNAME, FIRSTNAME , null);
-    }*/
-/*
     @Test
     public void testSetLastName() {
     }
