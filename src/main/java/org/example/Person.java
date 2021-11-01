@@ -1,5 +1,7 @@
 package org.example;
 
+import java.util.Objects;
+
 public class Person {
   /*  id : int
 - firstNmae: String
@@ -10,8 +12,9 @@ public class Person {
     private String firstname;
     private String lastName;
     private String email;
+    private AppUser credentials;
 
-    public Person(String firstname, String lastName, String email) {
+    public Person(String firstname, String lastName, String email, AppUser credentials) {
       /*  if(id == 0){
             throw new RuntimeException("id was null");
         }*/
@@ -26,6 +29,7 @@ public class Person {
         if(email == null){
             throw new RuntimeException("email was null");
         }
+
         // this.id = id;
         id++; //id Autoincrement
 
@@ -37,6 +41,16 @@ public class Person {
 
         //this.email = email;
         setEmail(email);
+
+        setCredentials(credentials);
+    }
+
+    public AppUser getCredentials() {
+        return credentials;
+    }
+
+    public void setCredentials(AppUser credentials) {
+        this.credentials = credentials;
     }
 
     public int getId() {
@@ -66,12 +80,33 @@ public class Person {
     public void setEmail(String email) {
         this.email = email;
     }
-
+/*
     public String getSummary(){
         String result ="The id is: "+this.id + "\nThe Name is: " + this.firstname + " " + this.lastName +
     "\nThe email is : " + this.email;
 
         return result;
+    }*/
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "firstname='" + firstname + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                '}';
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Person person = (Person) o;
+        return firstname.equals(person.firstname) && lastName.equals(person.lastName) && email.equals(person.email);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(firstname, lastName, email);
+    }
 }

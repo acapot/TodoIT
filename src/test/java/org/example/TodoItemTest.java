@@ -16,7 +16,7 @@ public class TodoItemTest {
     private static String TASKDESCRIPTION = "build the classes of the Program";
     private static LocalDate DEADLINE = LocalDate.of(2022,10,16);
     private static boolean DONE = true;
-    private static Person CREATOR = new Person("Alexis", "Capot","ac@hotmail.com");
+    private static Person CREATOR = new Person("Alexis", "Capot","ac@hotmail.com", new AppUser("acapot","admin",AppRole.ROLE_APP_ADMIN));
     private TodoItem testObject;
 
 

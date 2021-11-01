@@ -12,12 +12,12 @@ public class App
     {
         System.out.println("=========== Info 1==========");
         System.out.println("--------Person Creator---------");
-        Person creator =                new Person("Alexis", "Capot","ac@hotmail.com");
-        System.out.println(creator.getSummary());
+        Person creator =                new Person("Alexis", "Capot","ac@hotmail.com", new AppUser("acapot","admin",AppRole.ROLE_APP_ADMIN));
+        System.out.println(creator.toString());
 
         System.out.println("\n--------Person Assignee---------");
-        Person assignee =               new Person("Åsa", "Svensson","ss@hotmail.com");
-        System.out.println(assignee.getSummary());
+        Person assignee =               new Person("Åsa", "Svensson","ss@hotmail.com", new AppUser("asvens","user",AppRole.ROLE_APP_USER));
+        System.out.println(assignee.toString());
 
         System.out.println("\n--------TodoItem myTodoItem---------");
         TodoItem myTodoItem =           new TodoItem("Class of program", "build the classes of the Program", LocalDate.of(2022,10,16), false, creator);
@@ -30,12 +30,12 @@ public class App
         System.out.println("\n\n\n=========== Info 2==========");
 
         System.out.println("--------Person Creator---------");
-        Person creator2 =                new Person("Erick", "Petersson","ep@hotmail.com");
-        System.out.println(creator2.getSummary());
+        Person creator2 =                new Person("Erick", "Petersson","ep@hotmail.com",new AppUser("epeter","admin",AppRole.ROLE_APP_ADMIN));
+        System.out.println(creator2.toString());
 
         System.out.println("\n--------Person Assignee---------");
-        Person assignee2 =               new Person("Kalle", "Iansson","ki@hotmail.com");
-        System.out.println(assignee2.getSummary());
+        Person assignee2 =               new Person("Kalle", "Iansson","ki@hotmail.com", new AppUser("kian","user",AppRole.ROLE_APP_USER));
+        System.out.println(assignee2.toString());
 
         System.out.println("\n--------TodoItem myTodoItem---------");
         TodoItem myTodoItem2 =           new TodoItem("DB of program", "build the Database of the Program", LocalDate.of(2022,11,10), false, creator2);

@@ -11,9 +11,9 @@ import static org.junit.Assert.*;
 public class TodoItemTaskTest {
     private static int ID;
     private static boolean ASSIGNED = true;
-    private static Person CREATOR = new Person("Alexis", "Capot","ac@hotmail.com");
+    private static Person CREATOR = new Person("Alexis", "Capot","ac@hotmail.com", new AppUser("acapot","admin",AppRole.ROLE_APP_ADMIN));
     private static TodoItem TODOITEM = new TodoItem("Class of program", "build the classes of the Program", LocalDate.of(2022,10,16), false, CREATOR);
-    private static Person ASSIGNEE = new Person("Kalle", "Iansson","ki@hotmail.com");
+    private static Person ASSIGNEE = new Person("Kalle", "Iansson","ki@hotmail.com", new AppUser("kian","user",AppRole.ROLE_APP_USER));
     private TodoItemTask testObject;
 
     @Before
