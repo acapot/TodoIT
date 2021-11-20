@@ -54,7 +54,7 @@ public class App
         TodoItemTask todoItemTask2 =    new TodoItemTask(true, todoItem2, personAssigneeUser2);
         todoItemTaskDAO.persist(todoItemTask2);
 
-        System.out.println("=========== Star -> TodoItem Paert 3==========");
+        System.out.println("=========== Star -> TodoItem Part 3==========");
         System.out.println("--------appUserDAO.findAll()---------");
         appUserDAO.findAll().forEach(System.out::println);
         System.out.println("-------------------------------------");
@@ -67,7 +67,7 @@ public class App
         System.out.println("--------todoItemTaskDAO.findAll()---------");
         todoItemTaskDAO.findAll().stream().filter(x -> x.getId() > 0).map(x -> x.getSummary()).forEach(System.out::println);
         System.out.println("-------------------------------------");
-        System.out.println("=========== End -> TodoItem Paert 3==========");
+        System.out.println("=========== End -> TodoItem Part 3==========");
 
 /*
         System.out.println("=========== Star -> TodoItem Part 2==========");
