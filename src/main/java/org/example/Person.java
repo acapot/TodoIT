@@ -1,5 +1,8 @@
 package org.example;
 
+import org.example.Sequencers.PersonIdSequencer;
+
+
 import java.util.Objects;
 
 public class Person {
@@ -8,7 +11,7 @@ public class Person {
 - lastName: String
 - email : String*/
 
-    private static int id;
+    private int id;
     private String firstname;
     private String lastName;
     private String email;
@@ -18,6 +21,7 @@ public class Person {
       /*  if(id == 0){
             throw new RuntimeException("id was null");
         }*/
+        setId();
         if(firstname == null){
             throw new RuntimeException("firstname was null");
         }
@@ -31,7 +35,7 @@ public class Person {
         }
 
         // this.id = id;
-        id++; //id Autoincrement
+        //id++; //id Autoincrement
 
         //this.firstname = firstname;
         setFirstname(firstname);
@@ -55,6 +59,10 @@ public class Person {
 
     public int getId() {
         return id;
+    }
+
+    public void setId() {
+        this.id = PersonIdSequencer.nextId();
     }
 
     public String getFirstname() {

@@ -1,5 +1,7 @@
 package org.example;
 
+import org.example.Sequencers.TodoItemIdSequencer;
+
 import java.time.LocalDate;
 
 public class TodoItem {
@@ -12,7 +14,7 @@ public class TodoItem {
 - creator : Person
     */
 
-    private static int id;
+    private int id;
     private String title;
     private String taskDescription;
     private LocalDate deadLine;
@@ -21,6 +23,8 @@ public class TodoItem {
 
     public TodoItem(String title, String taskDescription, LocalDate deadLine, boolean done, Person creator) {
         //this.id = id;
+        setId();
+
         //this.title = title;
         setTitle(title);
 
@@ -36,12 +40,16 @@ public class TodoItem {
         //this.creator = creator;
         setCreator(creator);
 
-        id++; //Autoimcrement
+        //id++; //Autoimcrement
 
     }
 
-    public static int getId() {
-        return id;
+    public int getId() {
+        return this.id;
+    }
+
+    public void setId() {
+        this.id = TodoItemIdSequencer.nextId();
     }
 
     public String getTitle() {

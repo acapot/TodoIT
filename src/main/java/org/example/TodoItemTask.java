@@ -1,7 +1,10 @@
 package org.example;
 
+import org.example.Sequencers.TodoItemIdSequencer;
+import org.example.Sequencers.TodoItemTaskIdSequencer;
+
 public class TodoItemTask {
-    private static int id;
+    private int id;
     private boolean assigned;
     private TodoItem todoItem;
     private Person assignee;
@@ -13,22 +16,30 @@ public class TodoItemTask {
             throw new RuntimeException("todoItem was null");
         }
 
+        setId();
+
         //this.todoItem = todoItem;
         setTodoItem(todoItem);
 
         //this.assignee = assignee;
         setAssignee(assignee);
-        id++; //Autoincrement
+        //id++; //Autoincrement
     }
 
-    public static int getId() {
-        return id;
+    public int getId() {
+        return this.id;
+    }
+
+    public void setId() {
+        this.id = TodoItemTaskIdSequencer.nextId();
     }
 
     public boolean isAssigned() {
         boolean result = assigned;
         return assigned;
     }
+
+
 
     public void setAssigned(boolean assigned) {
         this.assigned = assigned;
